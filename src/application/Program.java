@@ -2,8 +2,8 @@ package application;
 
 import model.entities.CarRental;
 import model.entities.Vehicle;
-import model.services.BrazilTaxServices;
-import model.services.RentalServices;
+import model.services.BrazilTaxService;
+import model.services.RentalService;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -33,9 +33,9 @@ public class Program {
         System.out.print("Enter price per day: ");
         double pricePerDay = sc.nextDouble();
 
-        RentalServices rentalServices = new RentalServices(pricePerDay, pricePerHour, new BrazilTaxServices());
+        RentalService rentalService = new RentalService(pricePerDay, pricePerHour, new BrazilTaxService());
 
-        rentalServices.processInvoice(cr);
+        rentalService.processInvoice(cr);
 
         System.out.println();
         System.out.println("INVOICE");
